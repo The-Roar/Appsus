@@ -1,5 +1,5 @@
 const { Link, Route } = ReactRouterDOM;
-import { bookService } from '../services/book-service.jsx';
+import { bookService } from '../services/book-service.js';
 import { LongTxt } from '../../main/cmps/util/LongTxt.jsx';
 import { ReviewAdd } from '../cmps/ReviewAdd.jsx';
 import { ReviewsList } from '../cmps/ReviewsList.jsx';
