@@ -93,7 +93,7 @@ input {
   border-radius: 4px;
 }
 .txt-show-btn {
-  color: lightblue;
+  color: #1b78cf;
   cursor: pointer;
 }
 .txt-show-btn:hover {

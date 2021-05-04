@@ -5,26 +5,18 @@ class _AppHeader extends React.Component {
   };
 
   changeLogo = (pathname) => {
-    switch (pathname) {
-      case '/book':
-        this.setState({ logo: '../../missBooks/assets/img/books-logo.png' });
-        break;
-      case '/keep':
-        this.setState({ logo: '../../missKeep/assets/img/keep-logo.png' });
-        break;
-      case '/email':
-        this.setState({ logo: '../../misterEmail/assets/img/email-logo.png' });
-        break;
-      default:
-        this.setState({ logo: 'main/assets/img/main-logo.png' });
-        break;
-    }
+    if (pathname.includes('/book'))
+      this.setState({ logo: '../../missBooks/assets/img/books-logo.png' });
+    else if (pathname.includes('/keep'))
+      this.setState({ logo: '../../missKeep/assets/img/keep-logo.png' });
+    else if (pathname.includes('/email'))
+      this.setState({ logo: '../../misterEmail/assets/img/email-logo.png' });
+    else this.setState({ logo: 'main/assets/img/main-logo.png' });
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.changeLogo(this.props.location.pathname);
-      console.log('pathname', this.props.location.pathname);
     }
   }
 

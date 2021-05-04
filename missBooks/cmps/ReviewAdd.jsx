@@ -1,5 +1,5 @@
 import { bookService } from '../services/book-service.js';
-import { utilService } from '../services/util-service.js';
+import { utilService } from '../../main/services/util-service.js';
 import { RatingStars } from './RatingStars.jsx';
 export class ReviewAdd extends React.Component {
   state = {

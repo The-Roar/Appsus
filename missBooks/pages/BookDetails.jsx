@@ -63,8 +63,8 @@ export class BookDetails extends React.Component {
             </div>
             <h4>Book Features:</h4>
             <ul className='book-bullet-points'>
-              {this.pagesMessage && <li>Difficulty:{this.pagesMessage}</li>}
-              <li>Length{book.pageCount}</li>
+              {this.pagesMessage && <li>Difficulty: {this.pagesMessage}</li>}
+              <li>Pages: {book.pageCount}</li>
               {this.publishedMsg && <li>{this.publishedMsg}</li>}
             </ul>
             <button
