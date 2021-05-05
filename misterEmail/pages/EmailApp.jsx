@@ -1,5 +1,6 @@
-<<<<<<< HEAD
-import { emailService } from "../../services/email-service"
+import { emailService } from '../services/email-service.js'
+import { EmailSideBar } from '../cmps/EmailSideBar.jsx'
+import { EmailList } from '../cmps/EmailList.jsx'
 
 export class EmailApp extends React.Component {
     state = {
@@ -27,13 +28,11 @@ export class EmailApp extends React.Component {
         const { emails, selectedEmail } = this.state;
         if (!emails) return <div>Loading...</div>
         return (
-            <section>
-                <EmailList emails={emails} />
-                {selectedEmail && <EmailDetails email={selectedEmail}/>}
+            <section className="email-grid">
+                <EmailSideBar />
+                <EmailList emails={emails} setfilter={this.setFilter} />
+                {/* {selectedEmail && <EmailDetails email={selectedEmail}/>} */}
             </section>
         )
     }
 }
-=======
-// placeholder
->>>>>>> bc497bc94f945afd25bb020f870b06b05b2075b8

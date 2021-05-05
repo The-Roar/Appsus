@@ -20,8 +20,8 @@ var gEmails = [
     },
     {
         id: 3,
-        subject: 'What?',
-        body: 'I don\'t understand; please explain.',
+        subject: 'Wtf',
+        body: 'Wtf',
         isRead: false,
         sentAt: 1620212866000
     },
