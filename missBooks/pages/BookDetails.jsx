@@ -1,5 +1,5 @@
 const { Link, Route } = ReactRouterDOM;
-import { bookService } from '../services/book-service.jsx';
+import { bookService } from '../services/book-service.js';
 import { LongTxt } from '../../main/cmps/util/LongTxt.jsx';
 import { ReviewAdd } from '../cmps/ReviewAdd.jsx';
 import { ReviewsList } from '../cmps/ReviewsList.jsx';
@@ -63,8 +63,8 @@ export class BookDetails extends React.Component {
             </div>
             <h4>Book Features:</h4>
             <ul className='book-bullet-points'>
-              {this.pagesMessage && <li>Difficulty:{this.pagesMessage}</li>}
-              <li>Length{book.pageCount}</li>
+              {this.pagesMessage && <li>Difficulty: {this.pagesMessage}</li>}
+              <li>Pages: {book.pageCount}</li>
               {this.publishedMsg && <li>{this.publishedMsg}</li>}
             </ul>
             <button
