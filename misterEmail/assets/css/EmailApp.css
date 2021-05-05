@@ -46,3 +46,8 @@
     grid-area: 1 / 2 / 2 / 3;
     max-height: 850px;
 }
+
+.email-preview {
+    border-block-end: 2px solid rgb(206, 206, 206);    
+    
+}
