@@ -26,6 +26,7 @@ export class AddTxt extends React.Component {
             value={txt}
             onChange={this.handleChangeTxt}
             required
+            autoComplete='off'
           />
         </div>
         <div className='flex space-between'>

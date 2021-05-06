@@ -1,15 +1,16 @@
 .add-note {
   display: grid;
   grid-template-areas:
-    'header header'
-    'title title'
-    'input input'
-    'btn type-btns';
+    'header header header'
+    'title title title'
+    'input input input'
+    'btn color-picker type-btns';
   grid-gap: 5px;
   width: 90%;
   height: 100%;
   min-height: 260px;
   min-width: 320px;
+  max-width: 620px;
   padding: 20px;
   border-radius: 4px;
   margin-bottom: 20px !important;
@@ -30,6 +31,40 @@
   grid-area: input;
   width: 100%;
   min-height: 100px;
+}
+.note-color-picker {
+  display: grid;
+  grid-auto-flow: column;
+  grid-area: color-picker;
+}
+
+.note-color-picker label {
+  display: grid;
+  justify-items: center;
+  height: 40px;
+  width: fit-content;
+}
+
+.note-color-picker input {
+  height: 30px;
+}
+
+.input-by-type input {
+  border: dotted black 1px;
+  width: 100%;
+}
+
+.add-note-todos li:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.add-todo-row i {
+  font-size: 1.5em;
+}
+
+.add-todo-row i:hover {
+  cursor: pointer;
+  color: red;
 }
 
 .btn-add-note {

@@ -38,12 +38,13 @@ export class AddTodos extends React.Component {
                     onChange={this.handleChangeTodo}
                     value={todo.txt}
                     required
+                    autoComplete='off'
                   />
                 </li>
               );
             })}
             {todos.length < 10 ? (
-              <li>
+              <li className="add-todo-row">
                 <i className='fas fa-plus' onClick={this.addTodoInput}></i>
               </li>
             ) : null}

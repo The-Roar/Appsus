@@ -25,6 +25,7 @@ export class AddVideo extends React.Component {
             value={videoUrl}
             onChange={this.handleChangeVideo}
             required
+            autoComplete='off'
           />
         </div>
         <div className='flex space-between'>

@@ -7,7 +7,10 @@ export const gNotesData = [
             title: "My diary",
             txt: "Today was a good day!"
         },
-        style: {}
+        style: {
+            backgroundColor: "red",
+            color: "black"
+        }
     },
     {
         id: "b63acbf2adba",
@@ -18,7 +21,8 @@ export const gNotesData = [
             img: "/missKeep/assets/img/nap-time.jpg"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#00d",
+            color: "white"
         }
     },
     {
@@ -31,14 +35,14 @@ export const gNotesData = [
                 { txt: "Milk", doneAt: null },
                 { txt: "Sugar", doneAt: 187111111 }
             ]
-        },
-    },{
+        }, style: { backgroundColor: "white", color: "red" }
+    }, {
         id: "b63a8uuopadba",
         type: "video",
         isPinned: true,
         content: {
             title: "cute cat",
             video: "https://www.youtube.com/watch?v=uHKfrz65KSU"
-        },
+        }, style: { backgroundColor: "beige", color: "black" }
     }
 ];

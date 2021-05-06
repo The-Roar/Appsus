@@ -25,6 +25,7 @@ export class AddImg extends React.Component {
             onChange={this.handleChangeImg}
             value={imgUrl}
             required
+            autoComplete='off'
           />
         </div>
         <div className='flex space-between'>

@@ -8,34 +8,34 @@ export function KeepPreview({ note }) {
   switch (note.type) {
     case 'txt':
       return (
-        <Link className='note' to={`/keep/${note.id}`}>
+        <Link className='note' to={`/keep/${note.id}`} style={note.style}>
           {note.isPinned ? <i className='fas fa-thumbtack pin'></i> : ''}
           <NoteTxt note={note} />
         </Link>
       );
     case 'img':
       return (
-        <Link className='note' to={`/keep/${note.id}`}>
+        <Link className='note' to={`/keep/${note.id}`} style={note.style}>
           {note.isPinned ? <i className='fas fa-thumbtack pin'></i> : ''}
           <NoteImg note={note} />
         </Link>
       );
     case 'todos':
       return (
-        <Link className='note' to={`/keep/${note.id}`}>
+        <Link className='note' to={`/keep/${note.id}`} style={note.style}>
           {note.isPinned ? <i className='fas fa-thumbtack pin'></i> : ''}
           <NoteTodos note={note} />
         </Link>
       );
-      case 'video':
-        return (
-          <Link className='note' to={`/keep/${note.id}`}>
+    case 'video':
+      return (
+        <Link className='note' to={`/keep/${note.id}`} style={note.style}>
           {note.isPinned ? <i className='fas fa-thumbtack pin'></i> : ''}
           <NoteVideo note={note} />
         </Link>
-        )
+      );
     default:
-      <Link className='note' to={`/keep/${note.id}`}>
+      <Link className='note' to={`/keep/${note.id}`} style={note.style}>
         {note.isPinned ? <i className='fas fa-thumbtack pin'></i> : ''}
         <NoteTxt note={note} />
       </Link>;
