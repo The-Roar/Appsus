@@ -1,14 +1,19 @@
 @import '../../../missBooks/assets/css/BooksApp.css';
 @import '../../../missBooks/assets/css/BookDetails.css';
 @import '../../../missBooks/assets/css/Reviews.css';
+@import '../../../missKeep/assets/css/KeepApp.css';
+@import '../../../missKeep/assets/css/KeepDetails.css';
 
 @font-face {
   font-family: 'Oxygen';
   src: url('../fonts/Oxygen/Oxygen-Regular.ttf');
 }
 
-
 /* BASE */
+
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: rgb(251, 249, 249);
   font-family: Oxygen;
@@ -107,7 +112,7 @@ input {
   border: solid black 2px;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 

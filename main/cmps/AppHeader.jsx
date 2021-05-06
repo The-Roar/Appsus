@@ -14,6 +14,10 @@ class _AppHeader extends React.Component {
     else this.setState({ logo: 'main/assets/img/main-logo.png' });
   };
 
+  componentDidMount() {
+    this.changeLogo(this.props.location.pathname);
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.changeLogo(this.props.location.pathname);
