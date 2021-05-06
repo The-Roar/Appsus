@@ -102,6 +102,24 @@ select {
 
 .pin {
   float: right;
+  padding: 5px;
+}
+
+.pin:hover {
+  cursor: pointer;
+  background-color: rgb(167, 166, 166);
+  border-radius: 50px;
+}
+
+.remove {
+  float: left;
+  padding: 5px;
+}
+
+.remove:hover {
+  cursor: pointer;
+  background-color: rgb(167, 166, 166);
+  border-radius: 50px;
 }
 
 .note-type-btns span.active {

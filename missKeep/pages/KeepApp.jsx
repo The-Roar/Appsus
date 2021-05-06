@@ -22,6 +22,9 @@ export class KeepApp extends React.Component {
   addNote = (note) => {
     keepService.addNote(note).then(this.loadNotes);
   };
+  removeNote = (noteId) => {
+    keepService.removeNoteById(noteId).then(this.loadNotes);
+  };
 
   render() {
     const { notes } = this.state;
@@ -30,7 +33,7 @@ export class KeepApp extends React.Component {
       <section>
         <KeepFilter setFilter={this.setFilter} />
         <KeepAdd addNote={this.addNote} />
-        <KeepList notes={notes} />
+        <KeepList removeNote={this.removeNote} notes={notes} />
       </section>
     );
   }

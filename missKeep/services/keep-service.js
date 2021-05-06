@@ -43,11 +43,10 @@ function query(filterBy) {
 function getNoteById(noteId) {
     return Promise.resolve(gNotesData.find(note => note.id === noteId));
 }
-function removeNoteById(note, noteId) {
-    // const noteIdx = note.reviews.findIndex(review => reviewId === review.id);
-    // book.reviews.splice(reviewIdx, 1);
-    // return Promise.resolve();
-
+function removeNoteById(noteId) {
+    const noteIdx = gNotesData.findIndex(note => note.id === noteId);
+    gNotesData.splice(noteIdx, 1);
+    return Promise.resolve(); //Trigger user msg for success
 }
 function addNote(note) {
     if (!note) return Promise.reject('No note was recieved '); // Trigger user msg for failure
