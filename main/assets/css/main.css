@@ -5,6 +5,7 @@
 @import '../../../missKeep/assets/css/KeepAdd.css';
 @import '../../../missKeep/assets/css/KeepDetails.css';
 @import '../../../misterEmail/assets/css/EmailApp.css';
+@import '../../../misterEmail/assets/css/EmailCompose.css';
 
 @font-face {
   font-family: 'Oxygen';

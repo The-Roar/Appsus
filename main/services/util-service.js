@@ -13,7 +13,7 @@ function makeId(length = 5) {
 }
 
 function convertTimeStamp(timestamp) {
-    var a = new Date(timestamp * 1000);
+    var a = new Date(timestamp);
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var year = a.getFullYear();
     var month = months[a.getMonth()];

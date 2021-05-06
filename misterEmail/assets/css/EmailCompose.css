@@ -1,0 +1,67 @@
+.compose-modal {
+    position: absolute;
+    bottom: 0;
+    right: 0.3125em;
+    background-color: white;
+    height: 37.5em;
+    width: 37.5em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1em auto 1.75em 0.75em;
+    grid-template-rows: 2.5em auto 0.75em;
+}
+
+.compose-header {
+    background-color: #ffd000;
+    grid-area: 1 / 1 / 2 / -1;
+}
+
+.compose-title {
+    grid-area: 1 / 2 / 2 / 3;
+    align-self: center;
+}
+
+.compose-x {
+    grid-area: 1 / -3 / 2 / -1;
+}
+
+.compose-x:hover {
+    background-color: #eec200;
+}
+
+.compose-form {
+    grid-area: 2 / 2 / -3 / 4;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2.5em 0.5em auto 0.5em 2.5em;
+}
+
+.compose-subject {
+    grid-area: 1 / 1 / 2 / 2;
+    border-block-end: 1px solid rgb(211, 211, 211);
+    border-radius: 0;
+}
+
+.compose-body {
+    grid-area: 3 / 1 / 4 / 2;
+    font-family: 'Oxygen';
+    font-size: 20px;
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.compose-send {
+    grid-area: -2 / 1 / -1 / 2;
+    background-color: rgb(27, 120, 207);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.compose-send:hover {
+    background-color: rgb(25, 103, 177);
+}
