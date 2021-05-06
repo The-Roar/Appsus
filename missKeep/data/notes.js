@@ -38,7 +38,7 @@ export const gNotesData = [
         isPinned: true,
         content: {
             title: "cute cat",
-            video: "https://youtu.be/uHKfrz65KSU"
+            video: "https://www.youtube.com/watch?v=uHKfrz65KSU"
         },
     }
 ];

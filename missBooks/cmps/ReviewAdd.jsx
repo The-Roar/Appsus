@@ -14,7 +14,6 @@ export class ReviewAdd extends React.Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log(ev.target);
   };
   handleChange = ({ target }) => {
     const field = target.name;

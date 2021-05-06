@@ -1,6 +1,7 @@
 import { keepService } from '../services/keep-service.js';
 import { KeepList } from '../cmps/KeepList.jsx';
 import { KeepFilter } from '../cmps/KeepFilter.jsx';
+import { KeepAdd } from '../cmps/KeepAdd.jsx';
 
 export class KeepApp extends React.Component {
   state = {
@@ -18,12 +19,17 @@ export class KeepApp extends React.Component {
   setFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadNotes);
   };
+  addNote = (note) => {
+    keepService.addNote(note).then(this.loadNotes);
+  };
+
   render() {
     const { notes } = this.state;
     if (!notes) return <p>Loading...</p>;
     return (
       <section>
         <KeepFilter setFilter={this.setFilter} />
+        <KeepAdd addNote={this.addNote} />
         <KeepList notes={notes} />
       </section>
     );
