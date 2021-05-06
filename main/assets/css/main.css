@@ -3,6 +3,7 @@
 @import '../../../missBooks/assets/css/Reviews.css';
 @import '../../../missKeep/assets/css/KeepApp.css';
 @import '../../../missKeep/assets/css/KeepDetails.css';
+@import '../../../misterEmail/assets/css/EmailApp.css';
 
 @font-face {
   font-family: 'Oxygen';
@@ -23,13 +24,18 @@ header {
   border-bottom: 1px solid rgb(218, 217, 217);
   background-color: white;
   padding-bottom: 10px;
-  margin-bottom: 1.5rem;
+  grid-area: 1 / 1 / 2 / 2;
+  /* margin-bottom: 1.5rem; */
 }
 main {
-  min-height: 60vh;
+  /* min-height: 60vh; */
+  grid-area: 2 / 1 / 3 / 2;
 }
 #root {
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10.809375em auto;
 }
 
 footer {
