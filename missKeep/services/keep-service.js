@@ -50,11 +50,9 @@ function removeNoteById(note, noteId) {
 
 }
 function addNote(note) {
-    // const note = 
-    // if (!book) return Promise.reject('No Book Id Found in add Review Func');
-    // if (!book.reviews) book.reviews = [];
-    // book.reviews.push(review);
-    // return Promise.resolve();
+    if (!note) return Promise.reject('No note was recieved '); // Trigger user msg for failure
+    gNotesData.push(note);
+    return Promise.resolve(); //Trigger user msg for success
 }
 
 function updateNoteById(noteId) {

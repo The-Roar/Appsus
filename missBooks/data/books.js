@@ -1,4 +1,4 @@
-export const gBooksData=[
+export const gBooksData = [
   {
     "id": "OXeMG8wNskc",
     "title": "metus hendrerit",
@@ -19,7 +19,16 @@ export const gBooksData=[
       "amount": 109,
       "currencyCode": "EUR",
       "isOnSale": false
-    }
+    },
+    "reviews": [
+      {
+        "id": "a8fjd",
+        "readerName": "Jason",
+        "rating": 4,
+        'date': 187111111,
+        "reviewTxt": "Great book!",
+      },
+    ]
   },
   {
     "id": "JYOJa2NpSCq",

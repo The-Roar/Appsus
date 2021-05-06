@@ -40,6 +40,7 @@ export class KeepFilter extends React.Component {
             <option value='all'>All</option>
             <option value='txt'>Text</option>
             <option value='img'>Image</option>
+            <option value='video'>Video</option>
             <option value='todos'>To-do list</option>
           </select>
         </form>

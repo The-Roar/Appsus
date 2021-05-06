@@ -32,5 +32,13 @@ export const gNotesData = [
                 { txt: "Sugar", doneAt: 187111111 }
             ]
         },
+    },{
+        id: "b63a8uuopadba",
+        type: "video",
+        isPinned: true,
+        content: {
+            title: "cute cat",
+            video: "https://youtu.be/uHKfrz65KSU"
+        },
     }
 ];
