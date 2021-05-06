@@ -26,18 +26,18 @@ export class BookFilter extends React.Component {
         <form className='filter-books flex'>
           <input
             type='search'
-            id='title-input-filter'
+            id='book-title-filter'
             name='title'
             value={title}
             onChange={this.handleChange}
-            placeholder='Search For Books...'
+            placeholder='Search for a book...'
           />
           <div className='price-filter'>
             <label htmlFor='price-input-filter'>Price: </label>
             <input
               type='number'
               placeholder='Min'
-              id='price-input-filter'
+              id='book-price-filter'
               name='minPrice'
               value={!minPrice ? '' : minPrice}
               onChange={this.handleChange}

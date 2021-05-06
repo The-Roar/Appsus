@@ -9,7 +9,7 @@ export const bookService = {
 function query(filterBy) {
     _updateCurrSymbol(gBooksData);
     if (filterBy) {
-        var { title, maxPrice, minPrice } = filterBy;
+        let { title, maxPrice, minPrice } = filterBy;
         maxPrice = maxPrice ? maxPrice : Infinity;
         minPrice = minPrice ? minPrice : 0;
         const filteredBooks = gBooksData.filter(book => {
