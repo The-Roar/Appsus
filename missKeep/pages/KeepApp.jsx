@@ -26,6 +26,10 @@ export class KeepApp extends React.Component {
     keepService.removeNoteById(noteId).then(this.loadNotes);
   };
 
+  pinToggle = (noteId) => {
+    keepService.pinNoteToggleById(noteId).then(this.loadNotes);
+  }
+
   render() {
     const { notes } = this.state;
     if (!notes) return <p>Loading...</p>;
@@ -33,7 +37,7 @@ export class KeepApp extends React.Component {
       <section>
         <KeepFilter setFilter={this.setFilter} />
         <KeepAdd addNote={this.addNote} />
-        <KeepList removeNote={this.removeNote} notes={notes} />
+        <KeepList removeNote={this.removeNote} notes={notes} pinToggle={this.pinToggle} />
       </section>
     );
   }

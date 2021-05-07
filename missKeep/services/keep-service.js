@@ -5,7 +5,7 @@ export const keepService = {
     addNote,
     removeNoteById,
     updateNoteById,
-    pinNoteById,
+    pinNoteToggleById,
 };
 
 function query(filterBy) {
@@ -58,6 +58,8 @@ function updateNoteById(noteId) {
 
 }
 
-function pinNoteById(noteId) {
-
+function pinNoteToggleById(noteId) {
+    const noteIdx = gNotesData.findIndex(note => note.id === noteId);
+    gNotesData[noteIdx].isPinned = !gNotesData[noteIdx].isPinned;
+    return Promise.resolve(); //Trigger user msg for success
 }

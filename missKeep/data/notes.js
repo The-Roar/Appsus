@@ -17,7 +17,7 @@ export const gNotesData = [
         type: "img",
         isPinned: false,
         content: {
-            title: "Me playing Mi",
+            title: "Nap Time",
             img: "/missKeep/assets/img/nap-time.jpg"
         },
         style: {
