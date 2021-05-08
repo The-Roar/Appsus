@@ -6,11 +6,11 @@ class _AppHeader extends React.Component {
 
   changeLogo = (pathname) => {
     if (pathname.includes('/book'))
-      this.setState({ logo: '../../missBooks/assets/img/books-logo.png' });
+      this.setState({ logo: 'missBooks/assets/img/books-logo.png' });
     else if (pathname.includes('/keep'))
-      this.setState({ logo: '../../missKeep/assets/img/keep-logo.png' });
+      this.setState({ logo: 'missKeep/assets/img/keep-logo.png' });
     else if (pathname.includes('/email'))
-      this.setState({ logo: '../../misterEmail/assets/img/email-logo.png' });
+      this.setState({ logo: 'misterEmail/assets/img/email-logo.png' });
     else this.setState({ logo: 'main/assets/img/main-logo.png' });
   };
 
