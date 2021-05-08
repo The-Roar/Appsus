@@ -13,14 +13,14 @@ export class LongTxt extends React.Component {
     if (isOver100) shortTxt += '...';
     return (
       <section>
-        <p>
+        <React.Fragment>
           <p>{isLongShown ? this.props.text : shortTxt}</p>
           {isOver100 && (
             <span className='txt-show-btn' onClick={this.onToggleShow}>
               {isLongShown ? 'Show Less' : 'Show More'}
             </span>
           )}
-        </p>
+        </React.Fragment>
       </section>
     );
   }
