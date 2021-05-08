@@ -15,8 +15,8 @@ function query(filterBy) {
         let filteredNotes = gNotesData;
         if (txt.length) {
             filteredNotes = filteredNotes.filter(note => {
+                let isIncludesTitle = note.content.title.toLowerCase().includes(txt);
                 let isIncludesTxt = false;
-                let noteTitle = note.content.title.toLowerCase();
                 switch (note.type) {
                     case "txt":
                         let noteTxt = note.content.txt.toLowerCase();
@@ -24,12 +24,12 @@ function query(filterBy) {
                         break;
                     case "todos":
                         isIncludesTxt = note.content.todos.some(todo => {
-                            let todoTxt = todo.txt.toLocaleLowerCase();
-                            todoTxt.includes(txt);
+                            let todoTxt = todo.txt.toLowerCase();
+                            return todoTxt.includes(txt);
                         });
                         break;
                 }
-                return (noteTitle.includes(txt) || isIncludesTxt);
+                return (isIncludesTitle || isIncludesTxt);
             });
         }
         if (type !== "all") {

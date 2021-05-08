@@ -29,6 +29,7 @@ export class KeepFilter extends React.Component {
             value={txt}
             onChange={this.handleChange}
             placeholder='Search for a note...'
+            autoComplete='off'
           />
           <label htmlFor='note-type-filter'>Type: </label>
           <select
