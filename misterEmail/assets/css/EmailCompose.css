@@ -8,6 +8,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     overflow: hidden;
+    box-shadow: 1px 4px 8px -3px #000000;
     display: grid;
     grid-template-columns: 1em auto 1.75em 0.75em;
     grid-template-rows: 2.5em auto 0.75em;

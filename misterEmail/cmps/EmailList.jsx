@@ -1,12 +1,19 @@
-// import { EmailFilter } from './EmailFilter.jsx'
+import { EmailFilter } from './EmailFilter.jsx'
 import { EmailPreview } from './EmailPreview.jsx'
 
-export function EmailList({emails, selectedEmail, toggleSelectedEmail, sendEmail, onRemoveEmail}) {
+export function EmailList({ emails, selectedEmail, onSelectPreview, sendEmail, onRemoveEmail, setFilter}) {
     if (!emails) return <div>Loading...</div>
     return (
         <section className="email-list-container">
-            {/* <EmailFilter setfilter={setfilter} /> */}
-            {emails.map(email => <EmailPreview email={email} selectedEmail={selectedEmail} toggleSelectedEmail={toggleSelectedEmail} sendEmail={sendEmail} onRemoveEmail={onRemoveEmail} key={email.id} />)}
+            <EmailFilter setFilter={setFilter} />
+            {emails.map(email => <EmailPreview
+                email={email}
+                selectedEmail={selectedEmail}
+                onSelectPreview={onSelectPreview}
+                sendEmail={sendEmail}
+                onRemoveEmail={onRemoveEmail}
+                key={email.id}
+            />)}
         </section>
     )
 }
