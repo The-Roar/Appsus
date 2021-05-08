@@ -1,0 +1,68 @@
+.note-details-edit-mode {
+  display: grid;
+  width: 80%;
+  height: 440px;
+  padding: 20px;
+  grid-template-areas:
+    'edit header close'
+    'edit-data edit-data .'
+    'edit-data edit-data trash';
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  border: 1px solid rgb(214, 213, 213);
+  border-radius: 4px;
+  margin: 5% auto;
+  max-width: 600px;
+}
+
+.edit-note {
+  display: grid;
+  grid-template-areas:
+    'title title'
+    'data data'
+    'done color-picker';
+  grid-area: edit-data;
+  width: 100%;
+  height: 100%;
+}
+.note-details-edit-mode h2 {
+  grid-area: header;
+  text-align: center;
+}
+
+.edit-note input,textarea{
+    padding: 8px;
+    background-color: transparent;
+    font-size: 16px;
+}
+
+.edit-note .input-note-title {
+  grid-area: title;
+  margin: auto;
+  max-width: 400px;
+  
+}
+.edit-note .input-by-type {
+  grid-area: data;
+  margin: auto;
+  max-width: 400px;
+}
+
+.edit-note .btn-done-note {
+  grid-area: done;
+  height: 50px;
+  width: 100px;
+  align-self: end;
+}
+.edit-note .note-color-picker {
+  grid-area: color-picker;
+  align-self: end;
+}
+
+.input-note-todos{
+  max-height: 200px;
+  overflow-y: auto;
+  padding-bottom: 5px;
+  padding-right: 5px;
+}

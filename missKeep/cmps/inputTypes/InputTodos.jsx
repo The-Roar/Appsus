@@ -1,6 +1,8 @@
-export class AddTodos extends React.Component {
+export class InputTodos extends React.Component {
   state = {
-    todos: [{ txt: '', doneAt: null }],
+    todos: this.props.note
+      ? this.props.note.content.todos
+      : [{ txt: '', doneAt: null }],
   };
   addTodoInput = () => {
     const updatedTodos = [...this.state.todos];
@@ -16,18 +18,19 @@ export class AddTodos extends React.Component {
     this.setState({ todos: updatedTodos });
   };
 
-  onAddNoteClick = () => {
-    const { onSubmit } = this.props;
-    onSubmit(this.state.todos);
+  onDoneClick = () => {
+    const { onDone } = this.props;
+    onDone(this.state.todos);
     // TODO: reset state
   };
 
   render() {
     const { todos } = this.state;
+    const {style} = this.props;
     return (
       <React.Fragment>
         <div className='input-by-type'>
-          <ul className='add-note-todos'>
+          <ul className='input-note-todos'>
             {todos.map((todo, idx) => {
               return (
                 <li key={idx}>
@@ -39,20 +42,21 @@ export class AddTodos extends React.Component {
                     value={todo.txt}
                     required
                     autoComplete='off'
+                    style={style}
                   />
                 </li>
               );
             })}
             {todos.length < 10 ? (
-              <li className="add-todo-row">
+              <li className='add-todo-row'>
                 <i className='fas fa-plus' onClick={this.addTodoInput}></i>
               </li>
             ) : null}
           </ul>
         </div>
         <div className='flex space-between'>
-          <button className='btn-add-note' onClick={this.onAddNoteClick}>
-            Add note
+          <button className='btn-done-note' onClick={this.onDoneClick}>
+            Done
           </button>
         </div>
       </React.Fragment>

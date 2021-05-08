@@ -1,6 +1,5 @@
-import { keeepService } from '../services/keep-service.js';
 import { utilService } from '../../main/services/util-service.js';
-import { KeepAddInput } from './KeepAddInput.jsx';
+import { KeepInput } from './KeepInput.jsx';
 
 export class KeepAdd extends React.Component {
   state = {
@@ -30,7 +29,7 @@ export class KeepAdd extends React.Component {
     }));
   };
 
-  onSubmit = (userInput) => {
+  onAddNote = (userInput) => {
     if (userInput || this.state.title) {
       const fullContent = {
         title: this.state.title,
@@ -68,7 +67,7 @@ export class KeepAdd extends React.Component {
       <div className='add-note center-margin'>
         <h2>Add a note</h2>
         <input
-          className='add-note-title'
+          className='input-note-title'
           type='text'
           name='title'
           placeholder='Title'
@@ -77,7 +76,7 @@ export class KeepAdd extends React.Component {
           required
           autoComplete='off'
         />
-        <KeepAddInput type={type} onSubmit={this.onSubmit} />
+        <KeepInput type={type} onDone={this.onAddNote} />
         <section className='note-color-picker'>
           <label>
             <i className='fas fa-fill-drip'></i>

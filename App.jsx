@@ -7,6 +7,7 @@ import { KeepApp } from './missKeep/pages/KeepApp.jsx'
 import { EmailApp } from './misterEmail/pages/EmailApp.jsx'
 import { BookDetails } from './missBooks/pages/BookDetails.jsx'
 import { Home } from './main/pages/Home.jsx'
+import {KeepDetails} from './missKeep/pages/KeepDetails.jsx'
 
 export function App() {
     return <Router>
@@ -17,7 +18,8 @@ export function App() {
             <Switch>
                 <Route component={BookDetails} path="/book/:bookId" />
                 <Route component={BooksApp} path="/book" />
-                <Route component={KeepApp} path="/keep" />
+                <Route component={KeepApp} exact path="/keep" />
+                <Route component={KeepDetails} exact path="/keep/:noteId" />
                 <Route component={EmailApp} path="/email" />
                 <Route component={About} path="/about" />
                 <Route component={Home} path="/" />

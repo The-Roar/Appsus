@@ -1,15 +1,15 @@
-export class AddImg extends React.Component {
+export class InputImg extends React.Component {
   state = {
-    imgUrl: '',
+    imgUrl: this.props.note ? this.props.note.content.img : '',
   };
   handleChangeImg = ({ target }) => {
     const value = target.value;
     this.setState({ imgUrl: value });
   };
 
-  onAddNoteClick = () => {
-    const { onSubmit } = this.props;
-    onSubmit(this.state.imgUrl);
+  onDoneClick = () => {
+    const { onDone } = this.props;
+    onDone(this.state.imgUrl);
     // TODO: reset state
   };
   render() {
@@ -18,7 +18,7 @@ export class AddImg extends React.Component {
       <React.Fragment>
         <div className='input-by-type'>
           <input
-            className='add-note-img'
+            className='input-note-img'
             type='text'
             name='img'
             placeholder='Image URL'
@@ -29,8 +29,8 @@ export class AddImg extends React.Component {
           />
         </div>
         <div className='flex space-between'>
-          <button className='btn-add-note' onClick={this.onAddNoteClick}>
-            Add note
+          <button className='btn-done-note' onClick={this.onDoneClick}>
+            Done
           </button>
         </div>
       </React.Fragment>

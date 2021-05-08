@@ -15,10 +15,10 @@ export class NoteTodos extends React.Component {
 
   render() {
     const { todos } = this.state;
-    const { note } = this.props;
+    const { note, color } = this.props;
     const noteId = note.id;
     return (
-      <div className='todos-note'>
+      <div className='todos-note' style={{color}}>
         <h3>{note.content.title}</h3>
         {todos.map((todo, idx) => {
           return (

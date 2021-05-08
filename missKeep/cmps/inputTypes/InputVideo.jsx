@@ -1,15 +1,15 @@
-export class AddVideo extends React.Component {
+export class InputVideo extends React.Component {
   state = {
-    videoUrl: '',
+    videoUrl: this.props.note ? this.props.note.content.video : '',
   };
   handleChangeVideo = ({ target }) => {
     const value = target.value;
     this.setState({ videoUrl: value });
   };
 
-  onAddNoteClick = () => {
-    const { onSubmit } = this.props;
-    onSubmit(this.state.videoUrl);
+  onDoneClick = () => {
+    const { onDone } = this.props;
+    onDone(this.state.videoUrl);
     // TODO: reset state
   };
   render() {
@@ -18,7 +18,7 @@ export class AddVideo extends React.Component {
       <React.Fragment>
         <div className='input-by-type'>
           <input
-            className='add-note-video'
+            className='input-note-video'
             type='text'
             name='video'
             placeholder='Youtube Video URL'
@@ -29,8 +29,8 @@ export class AddVideo extends React.Component {
           />
         </div>
         <div className='flex space-between'>
-          <button className='btn-add-note' onClick={this.onAddNoteClick}>
-            Add note
+          <button className='btn-done-note' onClick={this.onDoneClick}>
+            Done
           </button>
         </div>
       </React.Fragment>

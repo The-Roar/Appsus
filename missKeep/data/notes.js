@@ -8,8 +8,8 @@ export const gNotesData = [
             txt: "Today was a good day!"
         },
         style: {
-            backgroundColor: "red",
-            color: "black"
+            backgroundColor: "#ff0000",
+            color: "#000000"
         }
     },
     {
@@ -22,7 +22,7 @@ export const gNotesData = [
         },
         style: {
             backgroundColor: "#00d",
-            color: "white"
+            color: "#ffffff"
         }
     },
     {
@@ -35,7 +35,7 @@ export const gNotesData = [
                 { txt: "Milk", doneAt: null },
                 { txt: "Sugar", doneAt: 187111111 }
             ]
-        }, style: { backgroundColor: "white", color: "red" }
+        }, style: { backgroundColor: "#ffffff", color: "#ff0000" }
     }, {
         id: "b63a8uuopadba",
         type: "video",
@@ -43,6 +43,6 @@ export const gNotesData = [
         content: {
             title: "cute cat",
             video: "https://www.youtube.com/watch?v=uHKfrz65KSU"
-        }, style: { backgroundColor: "beige", color: "black" }
+        }, style: { backgroundColor: "#f5f5dc", color: "#000000" }
     }
 ];

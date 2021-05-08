@@ -22,7 +22,7 @@
   text-align: center;
   grid-area: header;
 }
-.add-note-title {
+.input-note-title {
   grid-area: title;
   border: dotted black 1px;
 }
@@ -54,7 +54,7 @@
   width: 100%;
 }
 
-.add-note-todos li:not(:last-child) {
+.input-note-todos li:not(:last-child) {
   margin-bottom: 5px;
 }
 
@@ -67,7 +67,7 @@
   color: red;
 }
 
-.btn-add-note {
+.btn-done-note {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: none;
@@ -80,7 +80,7 @@
   font-weight: bold;
 }
 
-.btn-add-note:hover {
+.btn-done-note:hover {
   cursor: pointer;
   background-color: #ffc838;
 }

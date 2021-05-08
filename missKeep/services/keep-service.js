@@ -44,7 +44,7 @@ function getNoteById(noteId) {
     return Promise.resolve(gNotesData.find(note => note.id === noteId));
 }
 function removeNoteById(noteId) {
-    const noteIdx = gNotesData.findIndex(note => note.id === noteId);
+    const noteIdx = _findNoteIdxById(noteId);
     gNotesData.splice(noteIdx, 1);
     return Promise.resolve(); //Trigger user msg for success
 }
@@ -54,12 +54,18 @@ function addNote(note) {
     return Promise.resolve(); //Trigger user msg for success
 }
 
-function updateNoteById(noteId) {
-
+function updateNoteById(updatedNote) {
+    const noteIdx = _findNoteIdxById(updatedNote.id);
+    gNotesData[noteIdx] = updatedNote;
+    return Promise.resolve(); //Trigger user msg for success
 }
 
 function pinNoteToggleById(noteId) {
     const noteIdx = gNotesData.findIndex(note => note.id === noteId);
     gNotesData[noteIdx].isPinned = !gNotesData[noteIdx].isPinned;
     return Promise.resolve(); //Trigger user msg for success
+}
+
+function _findNoteIdxById(noteId) {
+    return gNotesData.findIndex(note => note.id === noteId);
 }
