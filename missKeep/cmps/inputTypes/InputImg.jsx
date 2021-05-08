@@ -7,10 +7,12 @@ export class InputImg extends React.Component {
     this.setState({ imgUrl: value });
   };
 
+  resetState = () => this.setState({ imgUrl: '' });
+
   onDoneClick = () => {
     const { onDone } = this.props;
     onDone(this.state.imgUrl);
-    // TODO: reset state
+    this.resetState();
   };
   render() {
     const { imgUrl } = this.state;

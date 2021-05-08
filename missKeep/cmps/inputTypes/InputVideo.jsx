@@ -7,10 +7,12 @@ export class InputVideo extends React.Component {
     this.setState({ videoUrl: value });
   };
 
+  resetState = () => this.setState({ videoUrl: '' });
+
   onDoneClick = () => {
     const { onDone } = this.props;
     onDone(this.state.videoUrl);
-    // TODO: reset state
+    this.resetState();
   };
   render() {
     const { videoUrl } = this.state;

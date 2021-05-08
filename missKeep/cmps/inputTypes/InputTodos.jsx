@@ -18,15 +18,19 @@ export class InputTodos extends React.Component {
     this.setState({ todos: updatedTodos });
   };
 
+  resetState = () => {
+    this.setState({ todos: [{ txt: '', doneAt: null }] });
+  };
+
   onDoneClick = () => {
     const { onDone } = this.props;
     onDone(this.state.todos);
-    // TODO: reset state
+    this.resetState();
   };
 
   render() {
     const { todos } = this.state;
-    const {style} = this.props;
+    const { style } = this.props;
     return (
       <React.Fragment>
         <div className='input-by-type'>

@@ -7,14 +7,16 @@ export class InputTxt extends React.Component {
     this.setState({ txt: value });
   };
 
+  resetState = () => this.setState({ txt: '' });
+
   onDoneClick = () => {
     const { onDone } = this.props;
     onDone(this.state.txt);
-    // TODO: reset state
+    this.resetState();
   };
   render() {
     const { txt } = this.state;
-    const {style} = this.props;
+    const { style } = this.props;
     return (
       <React.Fragment>
         <div className='input-by-type'>

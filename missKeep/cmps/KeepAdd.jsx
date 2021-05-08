@@ -29,6 +29,19 @@ export class KeepAdd extends React.Component {
     }));
   };
 
+  resetState = () => {
+    this.setState({
+      note: {
+        id: utilService.makeId(),
+        type: 'txt',
+        isPinned: false,
+        content: null,
+        style: { backgroundColor: '#f5f5dc', color: '#000000' },
+      },
+      title: '',
+    });
+  };
+
   onAddNote = (userInput) => {
     if (userInput || this.state.title) {
       const fullContent = {
@@ -41,7 +54,7 @@ export class KeepAdd extends React.Component {
         }),
         () => {
           this.props.addNote(this.state.note);
-          // TODO: reset state
+          this.resetState();
         }
       );
     } else {
