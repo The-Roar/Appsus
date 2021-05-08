@@ -2,7 +2,8 @@ export class LongTxt extends React.Component {
   state = {
     isLongShown: false,
   };
-  onToggleShow = () => {
+  onToggleShow = (ev) => {
+    ev.preventDefault();
     this.setState(({ isLongShown }) => ({ isLongShown: !isLongShown }));
   };
   render() {
@@ -13,7 +14,7 @@ export class LongTxt extends React.Component {
     return (
       <section>
         <p>
-          <span>{isLongShown ? this.props.text : shortTxt}</span>
+          <p>{isLongShown ? this.props.text : shortTxt}</p>
           {isOver100 && (
             <span className='txt-show-btn' onClick={this.onToggleShow}>
               {isLongShown ? 'Show Less' : 'Show More'}

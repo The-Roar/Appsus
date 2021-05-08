@@ -12,15 +12,15 @@
 }
 
 .note {
-  width: 18rem;
-  height: 18rem;
+  width: 300px;
+  height: 300px;
   background-color: beige;
   border: 1px solid rgb(214, 213, 213);
   padding: 0.25rem;
   border-radius: 4px;
   text-align: center;
   margin-inline-end: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin: 0 auto 1.25rem auto;
   flex-direction: column;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -54,14 +54,16 @@
   text-align: left;
 }
 
-.note-list img {
-  width: 80%;
+.note-list .img-note,
+.video-note {
+  width: 100%;
+  justify-items: center;
 }
 
-.note-list iframe {
-  width: 90%;
-  height: 90%;
-  justify-self: center;
+.note-list img,
+iframe {
+  width: 15rem;
+  max-height: 13rem;
 }
 
 .filter-notes input {
@@ -82,25 +84,14 @@ select {
   border: none;
 }
 
-.pinned {
-  display: flex;
-  grid-gap: 10px;
-  flex-wrap: wrap;
-  max-width: 1040px;
-  justify-content: center;
-  min-height: fit-content;
-}
-
+.pinned,
 .unpinned {
   display: flex;
   grid-gap: 10px;
   flex-wrap: wrap;
   max-width: 1040px;
-  justify-content: center;
+  justify-items: center;
   min-height: fit-content;
-}
-
-.pinned .pin {
 }
 
 .unpinned .pin {
@@ -141,4 +132,17 @@ select {
 
 .note-type-btns span.active i {
   box-shadow: rgba(0, 0, 0, 0.7) 2px 1px 1px 2px;
+}
+
+.txt-note{
+  width: 100%;
+}
+
+.txt-note section{
+white-space: pre-wrap;
+height: 100%;
+max-height: 180px;
+overflow-x: hidden;
+overflow-y: auto;
+padding-right: 5px;
 }
