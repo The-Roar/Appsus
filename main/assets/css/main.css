@@ -7,6 +7,7 @@
 @import '../../../missKeep/assets/css/KeepEdit.css';
 @import '../../../misterEmail/assets/css/EmailApp.css';
 @import '../../../misterEmail/assets/css/EmailCompose.css';
+@import '../../../main/assets/css/user-msg.css';
 
 @font-face {
   font-family: 'Oxygen';
@@ -56,13 +57,19 @@ a {
 }
 button {
   background-color: transparent;
-  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 input {
   border: none;
   outline: none;
   border-radius: 4px;
+}
+
+input,
+textarea {
+  font-family: Oxygen;
+  font-size: 16px;
 }
 
 .header-content {

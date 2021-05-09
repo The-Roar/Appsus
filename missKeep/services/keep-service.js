@@ -44,20 +44,22 @@ function getNoteById(noteId) {
     return Promise.resolve(gNotesData.find(note => note.id === noteId));
 }
 function removeNoteById(noteId) {
+    if (!noteId) return Promise.reject(false);
     const noteIdx = _findNoteIdxById(noteId);
     gNotesData.splice(noteIdx, 1);
-    return Promise.resolve(); //Trigger user msg for success
+    return Promise.resolve(true);
 }
 function addNote(note) {
-    if (!note) return Promise.reject('No note was recieved '); // Trigger user msg for failure
+    if (!note) return Promise.reject(false);
     gNotesData.push(note);
-    return Promise.resolve(); //Trigger user msg for success
+    return Promise.resolve(true);
 }
 
 function updateNoteById(updatedNote) {
+    if (!updatedNote) return Promise.reject(false);
     const noteIdx = _findNoteIdxById(updatedNote.id);
     gNotesData[noteIdx] = updatedNote;
-    return Promise.resolve(); //Trigger user msg for success
+    return Promise.resolve(true);
 }
 
 function pinNoteToggleById(noteId) {

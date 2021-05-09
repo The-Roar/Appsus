@@ -1,4 +1,4 @@
-export function NoteVideo({ note }) {
+export function NoteVideo({ note, color }) {
   const videoUrl = note.content.video;
   let urlType = videoUrl.includes('https://www.youtube.com/watch?v=')
     ? 'long'
@@ -19,7 +19,7 @@ export function NoteVideo({ note }) {
   }
 
   return (
-    <div className='video-note'>
+    <div className='video-note' style={{ color }}>
       <h3>{note.content.title}</h3>
       {urlType ? (
         <iframe

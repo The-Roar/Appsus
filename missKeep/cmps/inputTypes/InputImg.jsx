@@ -4,7 +4,10 @@ export class InputImg extends React.Component {
   };
   handleChangeImg = ({ target }) => {
     const value = target.value;
-    this.setState({ imgUrl: value });
+    this.setState({ imgUrl: value }, () => {
+      const { handleUnsavedChanges } = this.props;
+      if (handleUnsavedChanges) handleUnsavedChanges('imgUrl', this.state.imgUrl);
+    });
   };
 
   resetState = () => this.setState({ imgUrl: '' });

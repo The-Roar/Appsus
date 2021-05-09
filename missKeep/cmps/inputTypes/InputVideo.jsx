@@ -4,7 +4,11 @@ export class InputVideo extends React.Component {
   };
   handleChangeVideo = ({ target }) => {
     const value = target.value;
-    this.setState({ videoUrl: value });
+    this.setState({ videoUrl: value }, () => {
+      const { handleUnsavedChanges } = this.props;
+      if (handleUnsavedChanges)
+        handleUnsavedChanges('videoUrl', this.state.videoUrl);
+    });
   };
 
   resetState = () => this.setState({ videoUrl: '' });
@@ -16,6 +20,7 @@ export class InputVideo extends React.Component {
   };
   render() {
     const { videoUrl } = this.state;
+    const { color } = this.props.style;
     return (
       <React.Fragment>
         <div className='input-by-type'>
@@ -28,6 +33,7 @@ export class InputVideo extends React.Component {
             onChange={this.handleChangeVideo}
             required
             autoComplete='off'
+            style={{ color }}
           />
         </div>
         <div className='flex space-between'>

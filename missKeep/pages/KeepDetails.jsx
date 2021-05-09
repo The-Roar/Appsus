@@ -6,7 +6,7 @@ export class KeepDetails extends React.Component {
   state = {
     note: null,
     isEditable: false,
-    unsavedBackgroundChange: null,
+    unsavedChanges: null,
   };
 
   componentDidMount() {
@@ -23,10 +23,15 @@ export class KeepDetails extends React.Component {
     });
   }
 
-  closeDetailsModal = () => this.props.history.push('/keep');
+  closeDetailsModal = () => {
+    const { unsavedChanges } = this.state;
+    const { showUserMsg } = this.props;
+    if (unsavedChanges)
+      showUserMsg('unsavedChanges', 'Your changes were discarded');
+    else this.props.history.push('/keep');
+  };
 
   removeNote = () => {
-    // TODO: are you sure ? [msg]
     const { note } = this.state;
     keepService.removeNoteById(note.id).then(this.closeDetailsModal);
   };
@@ -39,27 +44,39 @@ export class KeepDetails extends React.Component {
     this.setState({ isEditable: false });
   };
 
-  handleUnsavedBackgroundChange = (backgroundColor) => {
-    this.setState({ unsavedBackgroundChange: backgroundColor });
+  handleUnsavedChanges = (field, value) => {
+    this.setState((prevState) => ({
+      unsavedChanges: { ...prevState.unsavedChanges, [field]: value },
+    }));
   };
+
   saveChanges = (updatedNote) => {
-    keepService.updateNoteById(updatedNote).then(() => {
-      this.editModeOff();
-      this.loadNote();
+    keepService.updateNoteById(updatedNote).then((isSuccess) => {
+      const { showUserMsg } = this.props;
+      if (isSuccess) {
+        showUserMsg('success', 'Note updated');
+        this.editModeOff();
+        this.loadNote();
+      } else showUserMsg('error', 'Something went wrong, please try again');
     });
   };
 
+  getCurrBackgroundColor = () => {
+    const { unsavedChanges, note } = this.state;
+    if (unsavedChanges) {
+      if ('backgroundColor' in unsavedChanges)
+        return unsavedChanges.backgroundColor;
+      else return note.style;
+    } else return note.style;
+  };
+
   render() {
-    const { note, isEditable, unsavedBackgroundChange } = this.state;
+    const { note, isEditable, unsavedChanges } = this.state;
     if (!note) return <div className='loader'>Loading</div>;
     return isEditable ? (
       <section
         className='note-details-edit-mode'
-        style={{
-          backgroundColor: unsavedBackgroundChange
-            ? unsavedBackgroundChange
-            : note.style,
-        }}
+        style={{ backgroundColor: this.getCurrBackgroundColor() }}
       >
         <i className='fas fa-edit edit-btn' onClick={this.editModeOn}></i>
         <h2>Edit note</h2>
@@ -68,7 +85,7 @@ export class KeepDetails extends React.Component {
         <KeepEdit
           note={note}
           saveChanges={this.saveChanges}
-          onBackgroundChange={this.handleUnsavedBackgroundChange}
+          handleUnsavedChanges={this.handleUnsavedChanges}
         />
       </section>
     ) : (
@@ -80,7 +97,7 @@ export class KeepDetails extends React.Component {
         <i className='fas fa-times close' onClick={this.closeDetailsModal}></i>
         <i className='far fa-trash-alt remove' onClick={this.removeNote}></i>
         <div className='content-by-type'>
-          <KeepDetailsContent note={note} color={note.style.color}/>
+          <KeepDetailsContent note={note} color={note.style.color} />
         </div>
       </section>
     );

@@ -73,6 +73,10 @@ iframe {
   height: 2rem;
 }
 
+.filter-notes select {
+  border-radius: 4px ;
+}
+
 .filter-notes label {
   align-self: center;
   margin-right: 5px;
@@ -134,15 +138,15 @@ select {
   box-shadow: rgba(0, 0, 0, 0.7) 2px 1px 1px 2px;
 }
 
-.txt-note{
+.txt-note {
   width: 100%;
 }
 
-.txt-note section{
-white-space: pre-wrap;
-height: 100%;
-max-height: 180px;
-overflow-x: hidden;
-overflow-y: auto;
-padding-right: 5px;
+.txt-note section {
+  white-space: pre-wrap;
+  height: 100%;
+  max-height: 180px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 5px;
 }

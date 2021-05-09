@@ -1,6 +1,5 @@
 import { utilService } from '../../main/services/util-service.js';
 import { KeepInput } from './KeepInput.jsx';
-
 export class KeepAdd extends React.Component {
   state = {
     note: {

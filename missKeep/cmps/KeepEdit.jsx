@@ -8,7 +8,10 @@ export class KeepEdit extends React.Component {
   };
   handleChangeTitle = ({ target }) => {
     const value = target.value;
-    this.setState({ title: value });
+    this.setState({ title: value }, () => {
+      const { handleUnsavedChanges } = this.props;
+      handleUnsavedChanges('title', this.state.title);
+    });
   };
   onSaveChanges = (updatedData) => {
     const { note } = this.props;
@@ -23,17 +26,16 @@ export class KeepEdit extends React.Component {
     const value = target.value;
     const field = target.name;
     this.setState({ [field]: value }, () => {
-      const { onBackgroundChange} = this.props;
-      const { backgroundColor } = this.state;
-      onBackgroundChange( backgroundColor );
+      const { handleUnsavedChanges } = this.props;
+      handleUnsavedChanges([field], value);
     });
   };
 
   render() {
-    const { note } = this.props;
+    const { note, handleUnsavedChanges } = this.props;
     const { title, backgroundColor, color } = this.state;
     return (
-      <div className='edit-note center-margin'> 
+      <div className='edit-note center-margin'>
         <input
           className='input-note-title'
           type='text'
@@ -43,9 +45,15 @@ export class KeepEdit extends React.Component {
           value={title}
           required
           autoComplete='off'
-          style={{color}}
+          style={{ color }}
         />
-        <KeepInput type={note.type} note={note} onDone={this.onSaveChanges} style={{color}}/>
+        <KeepInput
+          type={note.type}
+          note={note}
+          onDone={this.onSaveChanges}
+          style={{ color }}
+          handleUnsavedChanges={handleUnsavedChanges}
+        />
         <section className='note-color-picker'>
           <label>
             <i className='fas fa-fill-drip'></i>

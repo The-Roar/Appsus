@@ -15,7 +15,10 @@ export class InputTodos extends React.Component {
     const value = target.value;
     const updatedTodos = [...this.state.todos];
     updatedTodos[todoIdx].txt = value;
-    this.setState({ todos: updatedTodos });
+    this.setState({ todos: updatedTodos }, () => {
+      const { handleUnsavedChanges } = this.props;
+      if (handleUnsavedChanges) handleUnsavedChanges('todos', this.state.todos);
+    });
   };
 
   resetState = () => {

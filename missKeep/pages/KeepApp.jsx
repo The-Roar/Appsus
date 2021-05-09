@@ -19,16 +19,31 @@ export class KeepApp extends React.Component {
   setFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadNotes);
   };
+
   addNote = (note) => {
-    keepService.addNote(note).then(this.loadNotes);
+    keepService.addNote(note).then((isSuccess) => {
+      const { showUserMsg } = this.props;
+      if (isSuccess) {
+        showUserMsg('success', 'Note added');
+        this.loadNotes;
+        // TODO: scroll to new note
+      } else showUserMsg('error', 'Something went wrong, please try again');
+    });
   };
+
   removeNote = (noteId) => {
-    keepService.removeNoteById(noteId).then(this.loadNotes);
+    keepService.removeNoteById(noteId).then((isSuccess) => {
+      const { showUserMsg } = this.props;
+      if (isSuccess) {
+        showUserMsg('success', 'Note removed');
+        this.loadNotes;
+      } else showUserMsg('error', 'Something went wrong, please try again');
+    });
   };
 
   pinToggle = (noteId) => {
     keepService.pinNoteToggleById(noteId).then(this.loadNotes);
-  }
+  };
 
   render() {
     const { notes } = this.state;
@@ -37,7 +52,11 @@ export class KeepApp extends React.Component {
       <section>
         <KeepFilter setFilter={this.setFilter} />
         <KeepAdd addNote={this.addNote} />
-        <KeepList removeNote={this.removeNote} notes={notes} pinToggle={this.pinToggle} />
+        <KeepList
+          removeNote={this.removeNote}
+          notes={notes}
+          pinToggle={this.pinToggle}
+        />
       </section>
     );
   }

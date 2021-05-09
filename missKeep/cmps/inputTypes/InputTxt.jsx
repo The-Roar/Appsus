@@ -4,7 +4,10 @@ export class InputTxt extends React.Component {
   };
   handleChangeTxt = ({ target }) => {
     const value = target.value;
-    this.setState({ txt: value });
+    this.setState({ txt: value }, () => {
+      const { handleUnsavedChanges } = this.props;
+      if (handleUnsavedChanges) handleUnsavedChanges('txt', this.state.txt);
+    });
   };
 
   resetState = () => this.setState({ txt: '' });

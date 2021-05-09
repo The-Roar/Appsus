@@ -8,12 +8,12 @@ export function KeepDetailsContent({ note, color }) {
     case 'txt':
       return <NoteTxt note={note} color={color} />;
     case 'img':
-      return <NoteImg note={note} />;
+      return <NoteImg note={note} color={color} />;
     case 'video':
-      return <NoteVideo note={note} />;
+      return <NoteVideo note={note} color={color} />;
     case 'todos':
       return <NoteTodos note={note} color={color} />;
     default:
-      return <NoteTxt note={note} />;
+      return <NoteTxt note={note} color={color} />;
   }
 }
