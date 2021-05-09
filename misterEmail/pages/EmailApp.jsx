@@ -22,17 +22,10 @@ export class EmailApp extends React.Component {
             })
     }
 
-    toggleSelectedEmail = (selectedEmail) => {
-        this.setState({ selectedEmail })
-        // if (!selectedEmail === this.state.selectedEmail) this.setState({ selectedEmail })
-        // else (null) => {this.setState({ selectedEmail })}
-    }
-
-    
     setFilter = (filterBy) => {
         this.setState({ filterBy }, this.loadEmails)
     }
-    
+
     toggleCompose = (compose) => {
         this.setState({ compose })
     }
@@ -51,15 +44,41 @@ export class EmailApp extends React.Component {
             })
     }
 
+    onRead = (emailId) => {
+        emailService.setRead(emailId)
+            .then(() => {
+                this.loadEmails()
+            })
+    }
+
+    toggleSelectedEmail = (selectedEmail) => {
+        const toggle = (selectedEmail === this.state.selectedEmail) ? null : selectedEmail
+        this.setSelectedEmail(toggle)
+    }
+
+    setSelectedEmail = (selectedEmail) => {
+        this.setState({ selectedEmail })
+    }
+
     render() {
         const { emails, selectedEmail } = this.state;
         return (
             <section>
                 <section className="email-grid">
                     <EmailSideBar toggleCompose={this.toggleCompose} />
-                    <EmailList emails={emails} selectedEmail={selectedEmail} toggleSelectedEmail={this.toggleSelectedEmail} sendEmail={this.sendEmail} onRemoveEmail={this.onRemoveEmail} />
+                    <EmailList
+                        emails={emails}
+                        selectedEmail={selectedEmail}
+                        onSelectPreview={this.onSelectPreview}
+                        sendEmail={this.sendEmail}
+                        onRemoveEmail={this.onRemoveEmail}
+                        setFilter={this.setFilter}
+                    />
                 </section>
-                {this.state.compose && <EmailCompose sendEmail={this.sendEmail} toggleCompose={this.toggleCompose}/>}
+                {this.state.compose && <EmailCompose
+                    sendEmail={this.sendEmail}
+                    toggleCompose={this.toggleCompose}
+                />}
             </section>
         )
     }

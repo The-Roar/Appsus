@@ -2,15 +2,24 @@ import { utilService } from '../../main/services/util-service.js'
 
 export const emailService = {
     addEmail,
+    query,
     removeEmail,
-    query
+    setRead
 }
 
 var gEmails = [
     {
         id: utilService.makeId(),
+        subject: 'Major-General\'s Song',
+        body: 'I am the very model of a modern Major-General\nI\'ve information vegetable, animal, and mineral\nI know the kings of England, and I quote the fights historical\nFrom Marathon to Waterloo, in order categorical;\nI\'m very well acquainted too with matters mathematical\nI understand equations, both the simple and quadratical\nAbout binomial theorem I\'m teeming with a lot o\' news---\nWith many cheerful facts about the square of the hypotenuse\nWith many cheerful facts about the square of the hypotenuse\nWith many cheerful facts about the square of the hypotenuse\nWith many cheerful facts about the square of the hypote-pote-nuse\nI\'m very good at integral and differential calculus\nI know the scientific names of beings animalculous;\nIn short, in matters vegetable, animal, and mineral\nI am the very model of a modern Major-General\nIn short, in matters vegetable, animal, and mineral\nHe is the very model of a modern Major-General!\nI know our mythic history, King Arthur\'s and Sir Caradoc\'s\nI answer hard acrostics, I\'ve a pretty taste for paradox\nI quote in elegiacs all the crimes of Heliogabalus\nIn conics I can floor peculiarities parablous\nI can tell undoubted Raphaels from Gerard Dows and Zoffanies\nI know the croaking chorus from the Frogs of Aristophanes\nThen I can hum a fugue of which I\'ve heard the music\'s din afore\nAnd whistle all the airs from that infernal nonsense Pinafore\nAnd whistle all the airs from that infernal nonsense Pinafore\nAnd whistle all the airs from that infernal nonsense Pinafore\nAnd whistle all the airs from that infernal nonsense Pinafore!\nThen I can write a washing bill in Balylonic cuneiform\nAnd tell you every detail of Caractacus\'s uniform;\nIn short, in matters vegetable, animal, and mineral\nI am the very model of a modern Major-General\nIn short, in matters vegetable, animal, and mineral\nHe is the very model of a modern Major-General!\nIn fact, when I know what is meant by "mamelon" and "ravelin"\nWhen I can tell at sight a mauser rifle from a javelin\nWhen such affairs as sorties and surprises I\'m more wary at\nAnd when I know precisely what is meant by "commissariat"\nWhen I have learnt what progress has been made in modern gunnery\nWhen I know more of tactics than a novice in a nunnery:\nIn short, when I\'ve a smattering of elemental strategy\nYou\'ll say a better Major-General has never sat a gee\nYou\'ll say a better Major-General has never sat a gee\nYou\'ll say a better Major-General has never sat a gee\nYou\'ll say a better Major-General has never sat-a-sat-a-gee\nFor my military knowledge, though I\'m plucky and adventury\nHas only been brought down to the beginning of the century;\nBut still in matters vegetable, animal, and mineral\nI am the very model of a modern Major-General\nBut still in matters vegetable, animal, and mineral\nHe is the very model of a modern Major-General!',
+        isRead: false,
+        sentAt: 1620212866,
+        date: utilService.convertTimeStamp(1620212866000)
+    },
+    {
+        id: utilService.makeId(),
         subject: 'Wtf',
-        body: 'Wtf',
+        body: '',
         isRead: false,
         sentAt: 1620212866,
         date: utilService.convertTimeStamp(1620212866000)
@@ -35,9 +44,27 @@ var gEmails = [
 
 function query(filterBy) {
     if (filterBy) {
-
+        const { read } = filterBy;
+        const txt = filterBy.txt.toLowerCase();
+        let filteredEmails = gEmails;
+        if (txt.length) {
+            filteredEmails = filteredEmails.filter(email => {
+                let emailTxt = (email.subject + email.body).toLowerCase();
+                let isIncludesTxt = emailTxt.includes(txt);
+                return isIncludesTxt;
+            });
+        }
+        switch (read) {
+            case "unread":
+                filteredEmails = filteredEmails.filter(email => email.isRead)
+                break;
+            case "read":
+                filteredEmails = filteredEmails.filter(email => !email.isRead)
+                break;
+        }
+        return Promise.resolve(filteredEmails);
     }
-    return Promise.resolve(gEmails)
+    return Promise.resolve(gEmails);
 }
 
 function addEmail(subject, body, sentAt) {
@@ -61,3 +88,10 @@ function removeEmail(emailId) {
     return Promise.resolve();
 }
 
+function setRead(emailId) {
+    const emailIdx = gEmails.findIndex((email) => {
+        return emailId === email.id
+    })
+    gEmails[emailIdx].isRead = true;
+    return Promise.resolve();
+}
