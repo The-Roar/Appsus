@@ -18,7 +18,7 @@ export function About() {
             debitis ipsam molestias quasi tempora vero corrupti qui natus, quos
             minima saepe ratione!
           </p>
-          <img src='/main/assets/img/avatar.png' alt='avatar'></img>
+          <img src='main/assets/img/avatar.png' alt='avatar'></img>
         </div>
         <div>
           <h2>Dror Ringer</h2>
