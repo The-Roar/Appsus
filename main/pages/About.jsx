@@ -27,7 +27,7 @@ export function About() {
             nobis error doloremque ratione inventore, enim, dolore aspernatur
             distinctio voluptate quam porro.
           </p>
-          <img src='/main/assets/img/avatar.png' alt='avatar'></img>
+          <img src='main/assets/img/avatar.png' alt='avatar'></img>
         </div>
       </section>
     </section>
