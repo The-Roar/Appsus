@@ -33,7 +33,14 @@ export class KeepDetails extends React.Component {
 
   removeNote = () => {
     const { note } = this.state;
-    keepService.removeNoteById(note.id).then(this.closeDetailsModal);
+    keepService.removeNoteById(note.id).then((isSuccess) => {
+      const { showUserMsg } = this.props;
+      if (isSuccess) {
+        showUserMsg('success', 'Note removed');
+        this.loadNotes;
+      } else showUserMsg('error', 'Something went wrong, please try again');
+      this.closeDetailsModal;
+    });
   };
 
   editModeOn = () => {
