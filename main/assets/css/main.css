@@ -8,6 +8,8 @@
 @import '../../../misterEmail/assets/css/EmailApp.css';
 @import '../../../misterEmail/assets/css/EmailCompose.css';
 @import '../../../main/assets/css/user-msg.css';
+@import '../../../main/assets/css/home.css';
+@import '../../../main/assets/css/animated-title.css';
 
 @font-face {
   font-family: 'Oxygen';
@@ -29,7 +31,7 @@ header {
   background-color: white;
   padding-bottom: 10px;
   grid-area: 1 / 1 / 2 / 2;
-  /* margin-bottom: 1.5rem; */
+  height: fit-content;
 }
 main {
   /* min-height: 60vh; */
